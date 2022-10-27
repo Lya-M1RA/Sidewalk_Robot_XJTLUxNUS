@@ -12,4 +12,4 @@ resource/xbox_controller
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
-xbox_controller/__init__.py
+xbox_controller/controller.py

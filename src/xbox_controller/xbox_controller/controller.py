@@ -13,7 +13,7 @@ class ReadController(Node):
         self.sub = self.create_subscription(Joy, "/joy", self.listener_callback, 10)
 
     def listener_callback(self, msg):
-        self.get_logger().info('L-Joystick-x: ', msg.axes[0])
+        self.get_logger().info('L-Joystick-x: "%f"' % msg.axes[0])
 
 def main(args=None):
     rclpy.init(args=args)

@@ -1,0 +1,4 @@
+source;share/can_bus/hook/pythonpath.dsv
+source;share/can_bus/hook/pythonpath.sh
+source;share/can_bus/hook/ament_prefix_path.dsv
+source;share/can_bus/hook/ament_prefix_path.sh

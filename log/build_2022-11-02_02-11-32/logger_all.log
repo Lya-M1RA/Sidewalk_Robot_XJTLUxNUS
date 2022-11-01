@@ -1,0 +1,229 @@
+[1.203s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.205s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='sequential', event_handlers=None, base_paths=['.'], paths=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=CustomArgumentParser(prog='colcon build', usage=None, description='Build a set of packages.', formatter_class=<class 'colcon_core.command.CustomFormatter'>, conflict_handler='error', add_help=True), verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff88966cb0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff88966cb0>>)
+[1.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.491s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.491s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.492s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS'
+[1.493s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.494s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.494s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.582s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.584s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.584s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.585s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.588s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.590s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.591s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.593s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.599s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.600s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.605s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.607s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.615s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_bus) by extensions ['ignore', 'ignore_ament_install']
+[1.616s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_bus) by extension 'ignore'
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_bus) by extension 'ignore_ament_install'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_bus) by extensions ['ros']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_bus) by extension 'ros'
+[1.640s] DEBUG:colcon.colcon_core.package_identification:Package 'src/can_bus' with type 'ros.ament_python' and name 'can_bus'
+[1.641s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch_control) by extensions ['ignore', 'ignore_ament_install']
+[1.642s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch_control) by extension 'ignore'
+[1.642s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch_control) by extension 'ignore_ament_install'
+[1.643s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch_control) by extensions ['ros']
+[1.643s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch_control) by extension 'ros'
+[1.646s] DEBUG:colcon.colcon_core.package_identification:Package 'src/launch_control' with type 'ros.ament_python' and name 'launch_control'
+[1.647s] Level 1:colcon.colcon_core.package_identification:_identify(src/motor_control) by extensions ['ignore', 'ignore_ament_install']
+[1.649s] Level 1:colcon.colcon_core.package_identification:_identify(src/motor_control) by extension 'ignore'
+[1.650s] Level 1:colcon.colcon_core.package_identification:_identify(src/motor_control) by extension 'ignore_ament_install'
+[1.650s] Level 1:colcon.colcon_core.package_identification:_identify(src/motor_control) by extensions ['ros']
+[1.650s] Level 1:colcon.colcon_core.package_identification:_identify(src/motor_control) by extension 'ros'
+[1.653s] DEBUG:colcon.colcon_core.package_identification:Package 'src/motor_control' with type 'ros.ament_python' and name 'motor_control'
+[1.654s] Level 1:colcon.colcon_core.package_identification:_identify(src/share) by extensions ['ignore', 'ignore_ament_install']
+[1.655s] Level 1:colcon.colcon_core.package_identification:_identify(src/share) by extension 'ignore'
+[1.655s] Level 1:colcon.colcon_core.package_identification:_identify(src/share) by extension 'ignore_ament_install'
+[1.656s] Level 1:colcon.colcon_core.package_identification:_identify(src/share) by extensions ['ros']
+[1.656s] Level 1:colcon.colcon_core.package_identification:_identify(src/share) by extension 'ros'
+[1.662s] DEBUG:colcon.colcon_core.package_identification:Package 'src/share' with type 'ros.ament_cmake' and name 'share'
+[1.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.665s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.668s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.859s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_args' from command line to 'None'
+[1.859s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_target' from command line to 'None'
+[1.859s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.859s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_clean_cache' from command line to 'False'
+[1.860s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_clean_first' from command line to 'False'
+[1.860s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'cmake_force_configure' from command line to 'False'
+[1.860s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'ament_cmake_args' from command line to 'None'
+[1.860s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'catkin_cmake_args' from command line to 'None'
+[1.861s] Level 5:colcon.colcon_core.verb:set package 'can_bus' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.861s] DEBUG:colcon.colcon_core.verb:Building package 'can_bus' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/can_bus', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus', 'merge_install': False, 'path': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/can_bus', 'symlink_install': False, 'test_result_base': None}
+[1.874s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_args' from command line to 'None'
+[1.876s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_target' from command line to 'None'
+[1.877s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.878s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.879s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.879s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.879s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.880s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.880s] Level 5:colcon.colcon_core.verb:set package 'launch_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.880s] DEBUG:colcon.colcon_core.verb:Building package 'launch_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/launch_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control', 'merge_install': False, 'path': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/launch_control', 'symlink_install': False, 'test_result_base': None}
+[1.885s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_args' from command line to 'None'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_target' from command line to 'None'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.886s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.887s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.887s] DEBUG:colcon.colcon_core.verb:Building package 'motor_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/motor_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control', 'merge_install': False, 'path': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/motor_control', 'symlink_install': False, 'test_result_base': None}
+[1.891s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_args' from command line to 'None'
+[1.891s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_target' from command line to 'None'
+[1.891s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.891s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_clean_cache' from command line to 'False'
+[1.892s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_clean_first' from command line to 'False'
+[1.892s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_force_configure' from command line to 'False'
+[1.892s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'ament_cmake_args' from command line to 'None'
+[1.892s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'catkin_cmake_args' from command line to 'None'
+[1.892s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.892s] DEBUG:colcon.colcon_core.verb:Building package 'share' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share', 'merge_install': False, 'path': '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/share', 'symlink_install': False, 'test_result_base': None}
+[1.895s] INFO:colcon.colcon_core.executor:Executing jobs using 'sequential' executor
+[1.914s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'can_bus'
+[1.915s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/can_bus' with build type 'ament_python'
+[1.916s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_bus', 'ament_prefix_path')
+[1.941s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.943s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/hook/ament_prefix_path.dsv'
+[1.954s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/hook/ament_prefix_path.sh'
+[1.964s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.299s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/can_bus'
+[3.302s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.935s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/can_bus': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/can_bus build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/can_bus/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/can_bus/install.log --single-version-externally-managed
+[6.336s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/can_bus' returned '0': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/can_bus build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/can_bus/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/can_bus/install.log --single-version-externally-managed
+[6.356s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus' for CMake module files
+[6.358s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus' for CMake config files
+[6.362s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/lib'
+[6.363s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/bin'
+[6.363s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/lib/pkgconfig/can_bus.pc'
+[6.364s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/lib/python3.10/site-packages'
+[6.365s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_bus', 'pythonpath')
+[6.368s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/hook/pythonpath.dsv'
+[6.370s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/hook/pythonpath.sh'
+[6.373s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/bin'
+[6.373s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(can_bus)
+[6.377s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/package.dsv'
+[6.379s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/can_bus/package.sh'
+[6.383s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus/share/colcon-core/packages/can_bus)
+[6.384s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'can_bus' finished with '0'
+[6.384s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'launch_control'
+[6.385s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/launch_control' with build type 'ament_python'
+[6.385s] Level 1:colcon.colcon_core.shell:create_environment_hook('launch_control', 'ament_prefix_path')
+[6.389s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/hook/ament_prefix_path.dsv'
+[6.391s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/hook/ament_prefix_path.sh'
+[6.397s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.621s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/launch_control'
+[7.625s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.226s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/launch_control': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/launch_control build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/launch_control/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/launch_control/install.log --single-version-externally-managed
+[10.615s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/launch_control' returned '0': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/launch_control build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/launch_control/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/launch_control/install.log --single-version-externally-managed
+[10.618s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control' for CMake module files
+[10.620s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control' for CMake config files
+[10.623s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/lib'
+[10.624s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/bin'
+[10.624s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/lib/pkgconfig/launch_control.pc'
+[10.625s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/lib/python3.10/site-packages'
+[10.625s] Level 1:colcon.colcon_core.shell:create_environment_hook('launch_control', 'pythonpath')
+[10.629s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/hook/pythonpath.dsv'
+[10.631s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/hook/pythonpath.sh'
+[10.634s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/bin'
+[10.634s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(launch_control)
+[10.637s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/package.dsv'
+[10.640s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/launch_control/package.sh'
+[10.642s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control/share/colcon-core/packages/launch_control)
+[10.643s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'launch_control' finished with '0'
+[10.643s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'motor_control'
+[10.644s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/motor_control' with build type 'ament_python'
+[10.644s] Level 1:colcon.colcon_core.shell:create_environment_hook('motor_control', 'ament_prefix_path')
+[10.648s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/hook/ament_prefix_path.dsv'
+[10.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/hook/ament_prefix_path.sh'
+[10.655s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.944s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/motor_control'
+[11.947s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[13.561s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/motor_control': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/motor_control build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/motor_control/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/motor_control/install.log --single-version-externally-managed
+[14.986s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/motor_control' returned '0': PYTHONPATH=/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/motor_control build --build-base /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/motor_control/build install --prefix /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control --record /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/motor_control/install.log --single-version-externally-managed
+[14.989s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control' for CMake module files
+[14.992s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control' for CMake config files
+[14.995s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/lib'
+[14.996s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/bin'
+[14.996s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/lib/pkgconfig/motor_control.pc'
+[14.997s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/lib/python3.10/site-packages'
+[14.998s] Level 1:colcon.colcon_core.shell:create_environment_hook('motor_control', 'pythonpath')
+[15.001s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/hook/pythonpath.dsv'
+[15.003s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/hook/pythonpath.sh'
+[15.006s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/bin'
+[15.006s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(motor_control)
+[15.010s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/package.dsv'
+[15.012s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/motor_control/package.sh'
+[15.014s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control/share/colcon-core/packages/motor_control)
+[15.015s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'motor_control' finished with '0'
+[15.016s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'share'
+[15.016s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/share' with build type 'ament_cmake'
+[15.017s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/src/share'
+[15.020s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[15.072s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus:/opt/ros/humble /usr/bin/cmake --build /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share -- -j4 -l4
+[17.137s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus:/opt/ros/humble /usr/bin/cmake --build /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share -- -j4 -l4
+[17.584s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus:/opt/ros/humble /usr/bin/cmake --install /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share
+[17.917s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(share)
+[17.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/motor_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/launch_control:/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/can_bus:/opt/ros/humble /usr/bin/cmake --install /home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/build/share
+[17.930s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share' for CMake module files
+[17.941s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share' for CMake config files
+[17.945s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'cmake_prefix_path')
+[17.950s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/cmake_prefix_path.dsv'
+[17.953s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/cmake_prefix_path.sh'
+[17.958s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib'
+[17.959s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'ld_library_path_lib')
+[17.963s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/ld_library_path_lib.dsv'
+[17.966s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/ld_library_path_lib.sh'
+[17.970s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/bin'
+[17.970s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib/pkgconfig/share.pc'
+[17.971s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib/python3.10/site-packages'
+[17.972s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/bin'
+[17.976s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/package.dsv'
+[17.978s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/package.sh'
+[17.981s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/colcon-core/packages/share)
+[18.405s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(share)
+[18.415s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share' for CMake module files
+[18.419s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share' for CMake config files
+[18.421s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'cmake_prefix_path')
+[18.425s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/cmake_prefix_path.dsv'
+[18.427s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/cmake_prefix_path.sh'
+[18.430s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib'
+[18.430s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'ld_library_path_lib')
+[18.434s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/ld_library_path_lib.dsv'
+[18.435s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/hook/ld_library_path_lib.sh'
+[18.438s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/bin'
+[18.438s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib/pkgconfig/share.pc'
+[18.439s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/lib/python3.10/site-packages'
+[18.440s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/bin'
+[18.443s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/package.dsv'
+[18.446s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/share/package.sh'
+[18.448s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/share/share/colcon-core/packages/share)
+[18.449s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'share' finished with '0'
+[18.450s] DEBUG:colcon.colcon_core.executor.sequential:closing loop
+[18.451s] DEBUG:colcon.colcon_core.executor.sequential:loop closed
+[18.451s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[18.452s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[18.455s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/local_setup.sh'
+[18.458s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/_local_setup_util_sh.py'
+[18.464s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Desktop/Sidewalk_Robot_XJTLUxNUS/install/setup.sh'

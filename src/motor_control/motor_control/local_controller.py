@@ -7,7 +7,7 @@ import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
 from sensor_msgs.msg import Joy                  # ROS2 standard Joy Message
 from share.msg import SendCAN0
-from motor_instruct import *
+from motor_instruct.py import *
 
 gear = [False, 0]
 emerg_stop = False

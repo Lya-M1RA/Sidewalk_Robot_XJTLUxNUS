@@ -1,3 +1,0 @@
-[console_scripts]
-read_controller = xbox_controller.controller:main
-

@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'send_can0        = can_bus.can0_tx:main'
         ],
     },
 )

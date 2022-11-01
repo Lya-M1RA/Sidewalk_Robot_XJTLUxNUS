@@ -80,7 +80,7 @@ def PositionType(type):
 
     if type == 'Absolute Position':
         frame_data = GenerateFrame(1, [0x02, 0x20], [0x00,0x00,0x00,0x00])
-    elif mode == 'Relative Position':
+    elif type == 'Relative Position':
         frame_data = GenerateFrame(1, [0x02, 0x20], [0x01,0x00,0x00,0x00])
 
     return frame_data

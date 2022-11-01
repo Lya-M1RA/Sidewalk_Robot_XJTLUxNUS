@@ -14,7 +14,7 @@ class Tx(Node):
         self.sub_can = self.create_subscription(
             SendCAN0,
             '/send_can0',
-            self.send(),
+            self.send,
             10)
 
     def send(self, msg):

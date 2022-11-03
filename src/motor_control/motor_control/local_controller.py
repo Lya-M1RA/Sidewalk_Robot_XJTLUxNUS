@@ -105,44 +105,48 @@ class LocalController(Node):
             self.can_send(TargetPosition(0),TargetPosition(0))
         elif brake != -1:
             
-            self.can_send(MotorMode('Torque Control'), MotorMode('Torque Control'))
-            brake_factor = 2.5
-            brake_turning_factor = 0.1
-            brake_current = brake_factor * (brake + 1)
+            self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
             self.can_send(
-                TorqueControl(-brake_current + brake_turning_factor * orientation * (- brake + 3) * 0.25), 
-                TorqueControl( brake_current - brake_turning_factor * orientation * (- brake + 3) * 0.25)
-                )
+                        PWMControl(0),
+                        PWMControl(0)
+                    )
+            # brake_factor = 2.5
+            # brake_turning_factor = 0.1
+            # brake_current = brake_factor * (brake + 1)
+            # self.can_send(
+            #     TorqueControl(-brake_current + brake_turning_factor * orientation * (- brake + 3) * 0.25), 
+            #     TorqueControl( brake_current - brake_turning_factor * orientation * (- brake + 3) * 0.25)
+            #     )
         else:
             if throttle < self.last_throttle - 0.2:
                 self.last_throttle = throttle
                 self.can_send(MotorMode('Free Stop'), MotorMode('Free Stop'))
             else:
                 self.last_throttle = throttle
-                self.can_send(MotorMode('PWM Control'), MotorMode('PWM Control'))
+                self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
                 if gear[1] == 1:
-                    pwm_factor = 100
-                    pwm_turning_factor = 0.8
-                    pwm = pwm_factor * (throttle + 1) * 0.5
+                    rpm_factor = 150
+                    rpm_turning_factor = 0.4
+                    rpm = rpm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                        PWMControl(  rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3)
                     )
                 elif gear[1] == 0:
-                    pwm_factor = 50
-                    pwm_turning_factor = 1
-                    pwm = pwm_factor * (throttle + 1) * 0.5
+                    rpm_factor = 80
+                    rpm_turning_factor = 0.5
+                    rpm = rpm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                        PWMControl(  rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3)
                     )
                 elif gear[1] == -1:
-                    pwm_factor = -50
-                    pwm_turning_factor = 1
-                    pwm = pwm_factor * (throttle + 1) * 0.5
+                    rpm_factor = -50
+                    rpm_turning_factor = 0.6
+                    rpm = rpm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                        PWMControl(  rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- rpm + orientation * rpm_factor * rpm_turning_factor * (-throttle + 5) / 3)
                     )
 
 
@@ -171,7 +175,7 @@ def MotorMode(mode):
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x12,0x00,0x00,0x00])
     elif mode == 'PWM Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x00,0x00,0x00,0x00])
-    elif mode == 'CL Control':
+    elif mode == 'Speed Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x01,0x00,0x00,0x00])
     elif mode == 'Torque Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x02,0x00,0x00,0x00])

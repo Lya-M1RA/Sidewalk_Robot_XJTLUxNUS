@@ -79,7 +79,7 @@ class LocalController(Node):
         if input['x_button'] == 1:
             if gear[0] == False:
                 gear[0] = True
-                if gear[1] == 2:
+                if gear[1] == 1:
                     gear [1] = -1
                 else:
                     gear[1] = gear[1] + 1
@@ -114,43 +114,35 @@ class LocalController(Node):
                 TorqueControl( brake_current - brake_turning_factor * orientation * (- brake + 3) * 0.25)
                 )
         else:
-            if throttle < self.last_throttle - 0.02:
+            if throttle < self.last_throttle - 0.2:
                 self.last_throttle = throttle
                 self.can_send(MotorMode('Free Stop'), MotorMode('Free Stop'))
             else:
                 self.last_throttle = throttle
                 self.can_send(MotorMode('PWM Control'), MotorMode('PWM Control'))
-                if gear[1] == 2:
-                    pwm_factor = 900
-                    pwm_turning_factor = 0.1
+                if gear[1] == 1:
+                    pwm_factor = 100
+                    pwm_turning_factor = 0.8
                     pwm = pwm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25)
-                    )
-                elif gear[1] == 1:
-                    pwm_factor = 400
-                    pwm_turning_factor = 0.2
-                    pwm = pwm_factor * (throttle + 1) * 0.5
-                    self.can_send(
-                        PWMControl(pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25)
+                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
                     )
                 elif gear[1] == 0:
-                    pwm_factor = 200
-                    pwm_turning_factor = 0.4
+                    pwm_factor = 50
+                    pwm_turning_factor = 1
                     pwm = pwm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25)
+                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
                     )
                 elif gear[1] == -1:
                     pwm_factor = -50
                     pwm_turning_factor = 1
                     pwm = pwm_factor * (throttle + 1) * 0.5
                     self.can_send(
-                        PWMControl(pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25),
-                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 3) * 0.25)
+                        PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
+                        PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
                     )
 
 

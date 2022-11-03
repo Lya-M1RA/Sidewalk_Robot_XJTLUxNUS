@@ -14,7 +14,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/SendCAN0.msg"
+  "msg/SendCAN0.msg"  
+  "msg/RecvCAN0.msg"
 )
 
 if(BUILD_TESTING)

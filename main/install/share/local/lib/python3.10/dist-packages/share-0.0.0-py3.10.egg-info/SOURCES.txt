@@ -1,8 +1,0 @@
-setup.py
-share/__init__.py
-share.egg-info/PKG-INFO
-share.egg-info/SOURCES.txt
-share.egg-info/dependency_links.txt
-share.egg-info/top_level.txt
-share/msg/__init__.py
-share/msg/_send_can0.py

@@ -97,6 +97,7 @@ class LocalController(Node):
         LocalController.brake[0] = input['left_trigger']
 
         if LocalController.emerg_stop[1] == True:
+            LocalController.throttle[1] = False
             if LocalController.emerg_stop[0] == False:
                 LocalController.emerg_stop[0] == True
                 self.can_send(MotorMode('Emergency Stop'), MotorMode('Emergency Stop'))
@@ -104,6 +105,7 @@ class LocalController(Node):
             LocalController.emerg_stop[0] = False
 
             if LocalController.parking_mode[2] == True:
+                LocalController.throttle[1] = False
                 if LocalController.parking_mode[1] == False:
                     LocalController.parking_mode[1] = True
                     self.can_send(MotorMode('Position Control'), MotorMode('Position Control'))
@@ -113,6 +115,7 @@ class LocalController(Node):
                 LocalController.emerg_stop[1] = False
 
                 if LocalController.brake[0] != -1:
+                    LocalController.throttle[1] = False
                     if LocalController.brake[1] == False:
                         LocalController.brake[1] = True
                     #     self.can_send(MotorMode('Torque Control'), MotorMode('Torque Control'))
@@ -137,30 +140,30 @@ class LocalController(Node):
                         LocalController.last_throttle = LocalController.throttle[0]
                         if LocalController.throttle[1] == False:
                             LocalController.throttle[1] = True
-                            self.can_send(MotorMode('PWM Control'), MotorMode('PWM Control'))
-                        if gear[1] == 1:
-                            pwm_factor = 100
-                            pwm_turning_factor = 0.8
-                            pwm = pwm_factor * (throttle + 1) * 0.5
+                            self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
+                        if LocalController.gear[1] == 1:
+                            rpm_factor = 100
+                            rpm_turning_factor = 0.8
+                            rpm = rpm_factor * (LocalController.throttle + 1) * 0.5
                             self.can_send(
-                                PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                                PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                                RPMControl(  rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3),
+                                RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3)
                             )
-                        elif gear[1] == 0:
-                            pwm_factor = 50
-                            pwm_turning_factor = 1
-                            pwm = pwm_factor * (throttle + 1) * 0.5
+                        elif LocalController.gear[1] == 0:
+                            rpm_factor = 50
+                            rpm_turning_factor = 1
+                            rpm = rpm_factor * (LocalController.throttle + 1) * 0.5
                             self.can_send(
-                                PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                                PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                                RPMControl(  rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3),
+                                RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3)
                             )
-                        elif gear[1] == -1:
-                            pwm_factor = -50
-                            pwm_turning_factor = 1
-                            pwm = pwm_factor * (throttle + 1) * 0.5
+                        elif LocalController.gear[1] == -1:
+                            rpm_factor = -50
+                            rpm_turning_factor = 1
+                            rpm = rpm_factor * (LocalController.throttle + 1) * 0.5
                             self.can_send(
-                                PWMControl(  pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3),
-                                PWMControl(- pwm + orientation * pwm_factor * pwm_turning_factor * (-throttle + 5) / 3)
+                                RPMControl(  rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3),
+                                RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle + 5) / 3)
                             )
 
 

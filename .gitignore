@@ -1,10 +1,13 @@
-
+# build files from colcon
 */build/
 */install/
 */log/
 
+# temp file from macOS
 .DS_Store
 
+# folders from IDEs
+/.vscode/
 /.idea/
 /venv/
 

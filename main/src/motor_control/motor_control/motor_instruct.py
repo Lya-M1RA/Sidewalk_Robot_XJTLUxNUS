@@ -25,7 +25,7 @@ def MotorMode(mode):
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x12,0x00,0x00,0x00])
     elif mode == 'PWM Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x00,0x00,0x00,0x00])
-    elif mode == 'Sopeed Control':
+    elif mode == 'Speed Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x01,0x00,0x00,0x00])
     elif mode == 'Torque Control':
         frame_data = GenerateFrame(1, [0x00, 0x20], [0x02,0x00,0x00,0x00])

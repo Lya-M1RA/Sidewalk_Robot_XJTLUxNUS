@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "Imu_node=imu.li4_usart:main"        # where you can find li4_node entrance
         ],
     },
 )

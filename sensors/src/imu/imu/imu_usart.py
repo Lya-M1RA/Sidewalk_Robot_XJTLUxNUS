@@ -46,7 +46,7 @@ class IMU(Node):
         self.Q3 = 0                     # 四元数Q3
 
         # 判断串口是否打开成功
-        if IMU.IMU_Usart.isOpen():
+        if self.IMU_Usart.isOpen():
             print("open success")
         else:
             print("open failed")
@@ -160,7 +160,7 @@ def main(args=None):
 
     # 变量初始化---------------------------------------------    
     rclpy.init(args=args)
-    node = IMU('COM8')
+    node = IMU('/dev/ttyUSB0')
     every_time = time.strftime('%Y-%m-%d %H:%M:%S')# 时间戳
 
     # 发送读取指令-------------------------------------------

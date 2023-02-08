@@ -13,14 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='mira',
-    maintainer_email='l.yang.ze.s@gmail.com',
+    maintainer='lyx',
+    maintainer_email='lyx.work@qq.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "imu_node=imu.imu_usart:main"        # where you can find li4_node entrance
+            "imu_node=imu.imu_usart:main"       
         ],
     },
 )

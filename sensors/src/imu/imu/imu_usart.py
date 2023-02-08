@@ -13,10 +13,13 @@ import binascii
     Time: 2022.12.13
     description: IMU底层串口收发代码
 '''
+
+
 # imu接收数据类型
 class IMU(Node):
     send_data = []
-    def __init__(self,Usart_port) -> None:
+    def __init__(self,name,Usart_port) -> None:
+        super().__init__(name)
         # 串口初始化
         self.IMU_Usart = serial.Serial(
             port = Usart_port,          # 串口
@@ -45,6 +48,7 @@ class IMU(Node):
         self.Q2 = 0                     # 四元数Q2
         self.Q3 = 0                     # 四元数Q3
 
+        self.Pub_imu_data = self.create_publisher(Imu,"imu",1)
         # 判断串口是否打开成功
         if self.IMU_Usart.isOpen():
             print("open success")
@@ -119,48 +123,54 @@ class IMU(Node):
                 sum = 0
                 #print(Read_buffer)                                 # Read_buffer中的是byte数据字节流，用struct包解包
                 data_inspect = str(binascii.b2a_hex(Read_buffer))   # data是将数据转化为原本的按照16进制的数据
-                
-                for i in range(2,80,2):                 # 根据手册，检验所有帧之和低八位是否等于末尾帧
-                    sum += int(data_inspect[i:i+2],16)
-                
-                if (str(hex(sum))[-2:] == data_inspect[80:82]): # 如果数据检验没有问题，则进入解包过程
-                    print('the Rev data is right')
-                    
-                    # 数据低八位在前，高八位在后
-                    #print(Read_buffer[4:-1])                       
-                    unpack_data = struct.unpack('<hhhhhhhhhBhhhhhhhh',Read_buffer[4:-1])
-                    # 切片并将其解析为我们所需要的数据，切出我们所需要的数据部分
-                    #print(unpack_data)
-                    self.ACC_X  = unpack_data[0]
-                    self.ACC_Y  = unpack_data[1]        
-                    self.ACC_Z  = unpack_data[2] 
-                    self.GYRO_X = unpack_data[3]                
-                    self.GYRO_Y = unpack_data[4]                
-                    self.GYRO_Z = unpack_data[5]                     
-                    self.roll   = unpack_data[6]/100                
-                    self.pitch  = unpack_data[7]/100                 
-                    self.yaw    = unpack_data[8]/100                          
-                    self.level  = unpack_data[9]
-                    self.temp   = unpack_data[10]/100 
-                    self.MAG_X  = unpack_data[11]                
-                    self.MAG_Y  = unpack_data[12]                
-                    self.MAG_Z  = unpack_data[13]   
-                    self.Q0     = unpack_data[14]/10000        
-                    self.Q1     = unpack_data[15]/10000                 
-                    self.Q2     = unpack_data[16]/10000                 
-                    self.Q3     = unpack_data[17]/10000
-                    print(self.__dict__)
+
+                try:        # 如果接收数据无误，则执行数据解算操作
+                    for i in range(2,80,2):                 # 根据手册，检验所有帧之和低八位是否等于末尾帧
+                            sum += int(data_inspect[i:i+2],16)
+
+                    if (str(hex(sum))[-2:] == data_inspect[80:82]): # 如果数据检验没有问题，则进入解包过程
+                        print('the Rev data is right')
+                        
+                        # 数据低八位在前，高八位在后
+                        #print(Read_buffer[4:-1])                       
+                        unpack_data = struct.unpack('<hhhhhhhhhBhhhhhhhh',Read_buffer[4:-1])
+                        # 切片并将其解析为我们所需要的数据，切出我们所需要的数据部分
+                        #print(unpack_data)
+                        g = 9.8
+                        self.ACC_X  = unpack_data[0]/2048 * g       # unit m/s^2xiaos
+                        self.ACC_Y  = unpack_data[1]/2048 * g    
+                        self.ACC_Z  = unpack_data[2]/2048 * g
+                        self.GYRO_X = unpack_data[3]/16.4           # unit 度/s
+                        self.GYRO_Y = unpack_data[4]/16.4                
+                        self.GYRO_Z = unpack_data[5]/16.4                     
+                        self.roll   = unpack_data[6]/100                
+                        self.pitch  = unpack_data[7]/100                 
+                        self.yaw    = unpack_data[8]/100                          
+                        self.level  = unpack_data[9]
+                        self.temp   = unpack_data[10]/100 
+                        self.MAG_X  = unpack_data[11]/1000          # unit Gaos             
+                        self.MAG_Y  = unpack_data[12]/1000           
+                        self.MAG_Z  = unpack_data[13]/1000
+                        self.Q0     = unpack_data[14]/10000        
+                        self.Q1     = unpack_data[15]/10000                 
+                        self.Q2     = unpack_data[16]/10000                 
+                        self.Q3     = unpack_data[17]/10000
+                        #print(self.__dict__)
+                except:
+                    print("Error in receiving data!!")
                 counter=0               
                 break
             else:
                 counter += 1                        # 遍历整个接收数据的buffer
 
 
+
+
 def main(args=None):
 
     # 变量初始化---------------------------------------------    
     rclpy.init(args=args)
-    node = IMU('/dev/ttyUSB0')
+    node = IMU('imu','/dev/ttyUSB0')
     every_time = time.strftime('%Y-%m-%d %H:%M:%S')# 时间戳
 
     # 发送读取指令-------------------------------------------
@@ -175,9 +185,29 @@ def main(args=None):
 
     except KeyboardInterrupt:
         if serial != None:
+            print("close serial port")
             node.IMU_Usart.close()
     
     #--------------------------------------------------------
+
+    # 发布sensor_msgs/Imu 数据类型
+    imu_data = Imu()
+    imu_data.header.frame_id = "base_link"
+    imu_data.header.stamp = node.get_clock().now().to_msg()
+    imu_data.linear_acceleration.x = node.ACC_X
+    imu_data.linear_acceleration.y = node.ACC_Y
+    imu_data.linear_acceleration.z = node.ACC_Z
+    imu_data.angular_velocity.x = node.GYRO_X * 3.1415926 / 180.0  # unit transfer to rad/s
+    imu_data.angular_velocity.y = node.GYRO_Y * 3.1415926 / 180.0
+    imu_data.angular_velocity.z = node.GYRO_Z * 3.1415926 / 180.0
+    imu_data.orientation.x = node.Q0
+    imu_data.orientation.y = node.Q1
+    imu_data.orientation.z = node.Q2
+    imu_data.orientation.w = node.Q3
+
+    node.Pub_imu_data.publish(imu_data)             # 发布imu的数据，让cartographer订阅
+
+    # --------------------------------------------------------
     rclpy.spin(node)
     node.destory_node()
     rclpy.shutdown()

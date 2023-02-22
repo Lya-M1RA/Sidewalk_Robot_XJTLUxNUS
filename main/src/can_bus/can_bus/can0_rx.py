@@ -33,7 +33,7 @@ class Rx(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Rx('receive_can0')
+    node = Rx('recv_can0')
     rclpy.spin(node)
     node.destory_node()
     rclpy.shutdown()

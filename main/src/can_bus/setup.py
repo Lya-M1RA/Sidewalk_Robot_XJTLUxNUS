@@ -21,6 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'send_can0        = can_bus.can0_tx:main'
+            'recv_can0        = can_bus.can0_rx:main'
+            'encoder_can0     = can_bus.can0_encoder:main'
         ],
     },
 )

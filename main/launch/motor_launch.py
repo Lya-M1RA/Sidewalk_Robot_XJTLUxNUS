@@ -18,16 +18,16 @@ def generate_launch_description():
             executable='encoder_can0',
             name='encoder_can0'
         ),
-        Node(
-            package='motor_control',
-            executable='local_controller',
-            name='local_controller'
-        ),
-        Node(
-            package='joy',
-            executable='joy_node',
-            name='joy_node'
-        ),
+        # Node(
+        #     package='motor_control',
+        #     executable='local_controller',
+        #     name='local_controller'
+        # ),
+        # Node(
+        #     package='joy',
+        #     executable='joy_node',
+        #     name='joy_node'
+        # ),
         Node(
             package='motor_control',
             executable='encoder_counter',

@@ -18,7 +18,7 @@ class Encoder(Node):
         self.timer = self.create_timer(0.1, self.timer_callback)
 
     def timer_callback(self):
-        get_encoder = [0x40,0x05,0x21,0x00,0x0,0x00,0x00,0x00]
+        get_encoder = [0x40,0x05,0x21,0x00,0x00,0x00,0x00,0x00]
         msg = SendCAN0()
         msg.left_motor_data = get_encoder
         msg.right_motor_data = get_encoder

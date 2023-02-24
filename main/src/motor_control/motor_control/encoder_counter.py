@@ -42,7 +42,7 @@ class Counter(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Counter('encoder_diff')
+    node = Counter('encoder_counter')
     rclpy.spin(node)
     node.destory_node()
     rclpy.shutdown()

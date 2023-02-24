@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'local_controller           = motor_control.local_controller:main'
-            'encoder_diff               = motor_control.encoder_counter:main'
+            'encoder_counter            = motor_control.encoder_counter:main'
         ],
     },
 )

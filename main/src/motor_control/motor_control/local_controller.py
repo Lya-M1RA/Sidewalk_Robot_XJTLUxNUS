@@ -33,7 +33,7 @@ class LocalController(Node):
         self.pub_can = self.create_publisher(
             SendCAN0,
             'send_can0',
-            10)
+            20)
 
 
     def joy_recv(self,msg):

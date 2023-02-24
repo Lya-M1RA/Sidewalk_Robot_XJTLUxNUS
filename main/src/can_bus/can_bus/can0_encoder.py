@@ -15,7 +15,7 @@ class Encoder(Node):
             'send_can0',
             20)
 
-        self.timer = self.create_timer(0.05, self.timer_callback)
+        self.timer = self.create_timer(0.1, self.timer_callback)
 
     def timer_callback(self):
         get_encoder = [0x40,0x21,0x05,0x00,0x0,0x00,0x00,0x00]

@@ -30,7 +30,7 @@ def generate_launch_description():
         ),
         Node(
             package='motor_control',
-            executable='encoder_diff',
+            executable='encoder_counter',
             name='encoder_diff'
         ),
     ])

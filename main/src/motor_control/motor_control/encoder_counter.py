@@ -31,12 +31,13 @@ class Counter(Node):
         r_msg = msg.right_motor_stat
         l_count = int.from_bytes(l_msg[4:7], byteorder= 'little')
         r_count = int.from_bytes(r_msg[4:7], byteorder= 'little')
-        l_output = Int16()
-        l_output.data = l_count
-        r_output = Int16()
-        r_output.data = r_count
-        self.pub_lwheel.publish(l_output)
-        self.pub_rwheel.publish(r_output)
+        if (l_count in range(-32768,32767) and r_count in range(-32768,32767)):
+            l_output = Int16()
+            l_output.data = l_count
+            r_output = Int16()
+            r_output.data = r_count
+            self.pub_lwheel.publish(l_output)
+            self.pub_rwheel.publish(r_output)
 
 
 def main(args=None):

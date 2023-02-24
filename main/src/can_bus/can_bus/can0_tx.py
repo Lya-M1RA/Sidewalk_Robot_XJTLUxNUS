@@ -15,7 +15,7 @@ class Tx(Node):
             SendCAN0,
             'send_can0',
             self.send,
-            10)
+            20)
 
     def send(self, msg):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')

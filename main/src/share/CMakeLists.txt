@@ -16,8 +16,6 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SendCAN0.msg"  
   "msg/RecvCAN0.msg"
-  "msg/lwheel.msg"
-  "msg/rwheel.msg"
 )
 
 if(BUILD_TESTING)

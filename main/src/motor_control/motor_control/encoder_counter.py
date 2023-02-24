@@ -4,8 +4,7 @@
 import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
 from share.msg import RecvCAN0
-from share.msg import lwheel
-from share.msg import rwheel
+from std_msgs.msg import Int16
 
 class Counter(Node):
     def __init__(self,name):
@@ -18,13 +17,13 @@ class Counter(Node):
             10)
 
         self.pub_lwheel = self.create_publisher(
-            lwheel,
-            'send_lwheel',
+            Int16,
+            'lwheel',
             10)
 
         self.pub_rwheel = self.create_publisher(
-            rwheel,
-            'send_rwheel',
+            Int16,
+            'rwheel',
             10)
 
     def encoder(self, msg):
@@ -32,9 +31,9 @@ class Counter(Node):
         r_msg = msg.right_motor_stat
         l_count = int.from_bytes(l_msg[4:7], byteorder= 'little')
         r_count = int.from_bytes(r_msg[4:7], byteorder= 'little')
-        l_output = lwheel()
+        l_output = Int16()
         l_output.left_motor_encoder = l_count
-        r_output = rwheel()
+        r_output = Int16()
         r_output.right_motor_encoder = r_count
         self.pub_lwheel.publish(l_output)
         self.pub_rwheel.publish(r_output)

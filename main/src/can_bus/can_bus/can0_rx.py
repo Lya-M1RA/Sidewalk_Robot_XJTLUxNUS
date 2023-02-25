@@ -31,11 +31,11 @@ class Rx(Node):
         # self.get_logger().info(message)
         msg_l = RecvCAN0l()
         msg_r = RecvCAN0r()
-        if message is not None:
-            if (message.arbitration_id == 0x582) and (message.data[0:2] == [0x43,0x05,0x21]):
+        if message != None:
+            if (message.arbitration_id == 0x582) & (message.data[0:2] == [0x43,0x05,0x21]):
                 msg_l.left_motor_stat = message.data
                 self.recv_can_l.publish(msg_l)
-            if (message.arbitration_id == 0x583) and (message.data[0:2] == [0x43,0x05,0x21]):
+            if (message.arbitration_id == 0x583) & (message.data[0:2] == [0x43,0x05,0x21]):
                 msg_r.right_motor_stat = message.data
                 self.recv_can.publish(msg_r)
 

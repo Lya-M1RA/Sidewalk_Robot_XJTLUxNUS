@@ -23,9 +23,9 @@ class Rx(Node):
         message = can0.recv(0)
         msg = RecvCAN0()
         if message is not None:
-            if (message.arbitration_id is 0x582) and (message.data[0:2] is [0x43,0x05,0x21]):
+            if (message.arbitration_id is 0x582) and (message.data[0:2] == [0x43,0x05,0x21]):
                 msg.left_motor_stat = message.data
-            if (message.arbitration_id is 0x583) and (message.data[0:2] is [0x43,0x05,0x21]):
+            if (message.arbitration_id is 0x583) and (message.data[0:2] == [0x43,0x05,0x21]):
                 msg.right_motor_stat = message.data
             self.recv_can.publish(msg)
 

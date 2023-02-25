@@ -37,7 +37,7 @@ class Rx(Node):
                 msg_l.left_motor_stat = message.data
                 self.recv_can_l.publish(msg_l)
             if (message.arbitration_id == 0x583):
-                if(hex(int.from_bytes(message.data[:3])) == 0x430521):
+                if(hex(int.from_bytes(message.data[:3], byteorder='big')) == 0x430521):
                     self.get_logger().info("False")
                     msg_r.right_motor_stat = message.data
                     self.recv_can_r.publish(msg_r)

@@ -28,7 +28,7 @@ class Rx(Node):
     def timer_callback(self):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')
         message = can0.recv(0)
-        self.get_logger().info(message)
+        # self.get_logger().info(message)
         msg_l = RecvCAN0l()
         msg_r = RecvCAN0r()
         if message is not None:

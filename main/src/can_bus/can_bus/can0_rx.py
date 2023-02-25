@@ -16,7 +16,7 @@ class Rx(Node):
             'recv_can0',
             20)
 
-        self.timer = self.create_timer(0.0025, self.timer_callback)
+        self.timer = self.create_timer(0.025, self.timer_callback)
 
     def timer_callback(self):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')

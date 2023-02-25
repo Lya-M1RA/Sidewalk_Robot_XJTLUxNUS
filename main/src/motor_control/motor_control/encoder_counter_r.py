@@ -3,7 +3,7 @@
 
 import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
-from share.msg import RecvCAN0_r
+from share.msg import RecvCAN0r
 from std_msgs.msg import Int16
 
 class Counter(Node):
@@ -11,7 +11,7 @@ class Counter(Node):
         super().__init__(name)
 
         self.sub_recv = self.create_subscription(
-            RecvCAN0_r, 
+            RecvCAN0r, 
             "recv_can0", 
             self.encoder, 
             10)

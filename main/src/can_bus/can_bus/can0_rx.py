@@ -3,8 +3,8 @@
 
 import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
-from share.msg import RecvCAN0_l
-from share.msg import RecvCAN0_r
+from share.msg import RecvCAN0l
+from share.msg import RecvCAN0r
 import can
 
 class Rx(Node):
@@ -13,12 +13,12 @@ class Rx(Node):
         super().__init__(name)
 
         self.recv_can_l = self.create_publisher(
-            RecvCAN0_l,
+            RecvCAN0l,
             'recv_can_l',
             40)
         
         self.recv_can_r = self.create_publisher(
-            RecvCAN0_r,
+            RecvCAN0r,
             'recv_can_r',
             40)
 
@@ -28,8 +28,8 @@ class Rx(Node):
     def timer_callback(self):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')
         message = can0.recv(0)
-        msg_l = RecvCAN0_l()
-        msg_r = RecvCAN0_r()
+        msg_l = RecvCAN0l()
+        msg_r = RecvCAN0r()
         if message is not None:
             if (message.arbitration_id == 0x582) and (message.data[0:2] == [0x43,0x05,0x21]):
                 msg_l.left_motor_stat = message.data

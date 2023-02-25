@@ -8,29 +8,29 @@ def generate_launch_description():
             executable='send_can0',
             name='send_can0'
         ),
-        # Node(
-        #     package='can_bus',
-        #     executable='recv_can0',
-        #     name='recv_can0'
-        # ),
+        Node(
+            package='can_bus',
+            executable='recv_can0',
+            name='recv_can0'
+        ),
         Node(
             package='can_bus',
             executable='encoder_can0',
             name='encoder_can0'
         ),
-        # Node(
-        #     package='motor_control',
-        #     executable='local_controller',
-        #     name='local_controller'
-        # ),
-        # Node(
-        #     package='joy',
-        #     executable='joy_node',
-        #     name='joy_node'
-        # ),
-        # Node(
-        #     package='motor_control',
-        #     executable='encoder_counter',
-        #     name='encoder_counter'
-        # )
+        Node(
+            package='motor_control',
+            executable='local_controller',
+            name='local_controller'
+        ),
+        Node(
+            package='joy',
+            executable='joy_node',
+            name='joy_node'
+        ),
+        Node(
+            package='motor_control',
+            executable='encoder_counter',
+            name='encoder_counter'
+        )
     ])

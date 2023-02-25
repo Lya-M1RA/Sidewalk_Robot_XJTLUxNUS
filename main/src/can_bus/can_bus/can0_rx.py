@@ -16,16 +16,16 @@ class Rx(Node):
             'recv_can0',
             40)
 
-        self.timer = self.create_timer(0.01, self.timer_callback)
+        self.timer = self.create_timer(0.005, self.timer_callback)
 
     def timer_callback(self):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')
         message = can0.recv(0)
         msg = RecvCAN0()
         if message is not None:
-            if message.arbitration_id == 0x582 and message.data[0:1] is [0x43,0x05]:
+            if message.arbitration_id == 0x582 and message.data[0:2] is [0x43,0x05,0x21]:
                 msg.left_motor_stat = message.data
-            if message.arbitration_id == 0x583 and message.data[0:1] is [0x43,0x05]:
+            if message.arbitration_id == 0x583 and message.data[0:1] is [0x43,0x05,0x21]:
                 msg.right_motor_stat = message.data
             self.recv_can.publish(msg)
 

@@ -59,7 +59,6 @@ class LocalController(Node):
             'right_joy_button'      :  msg.buttons[14]  
         } 
         self.input_processor(input)
-        sleep(0.05)
 
 
     def can_send(self, left_frame_data, right_frame_data):

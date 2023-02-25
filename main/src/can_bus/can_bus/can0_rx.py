@@ -33,8 +33,10 @@ class Rx(Node):
         if message != None:
             self.get_logger().info("True")
             if (message.arbitration_id == 0x582) & (message.data[0:3] == [0x43,0x05,0x21]):
+                self.get_logger().info("False")
                 msg_l.left_motor_stat = message.data
                 self.recv_can_l.publish(msg_l)
+            
             if (message.arbitration_id == 0x583) & (message.data[0:3] == [0x43,0x05,0x21]):
                 msg_r.right_motor_stat = message.data
                 self.recv_can_r.publish(msg_r)

@@ -28,11 +28,11 @@ class Rx(Node):
     def timer_callback(self):
         can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')
         message = can0.recv(0)
-        # self.get_logger().info(message)
+        self.get_logger().info({message})
         msg_l = RecvCAN0l()
         msg_r = RecvCAN0r()
         if message != None:
-            self.get_logger().info('True')
+            # self.get_logger().info('True')
             if (message.arbitration_id == 0x582) & (message.data[0:3] == [0x43,0x05,0x21]):
                 msg_l.left_motor_stat = message.data
                 self.recv_can_l.publish(msg_l)

@@ -27,7 +27,7 @@ class Counter(Node):
         l_32 = - int.from_bytes(bytearray(l_msg[4:8]), byteorder= 'little', signed=True)
         l_np = np.array([l_32])
         l_output = Int16()
-        l_output.data = l_np.astype(np.int16)[0]
+        l_output.data = int(l_np.astype(np.int16)[0])
         self.pub_lwheel.publish(l_output)
 
 

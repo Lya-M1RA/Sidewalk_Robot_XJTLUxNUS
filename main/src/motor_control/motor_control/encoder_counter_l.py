@@ -12,7 +12,7 @@ class Counter(Node):
 
         self.sub_recv = self.create_subscription(
             RecvCAN0l, 
-            "recv_can0", 
+            "recv_can0_l", 
             self.encoder, 
             10)
 

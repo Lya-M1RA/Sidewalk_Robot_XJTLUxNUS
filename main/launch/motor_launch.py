@@ -27,7 +27,7 @@ def generate_launch_description():
             package='joy',
             executable='joy_node',
             name='joy_node',
-            parameters=[{'deadzone': 0.1}]
+            parameters=[{'deadzone': 0.2}]
         ),
         Node(
             package='motor_control',

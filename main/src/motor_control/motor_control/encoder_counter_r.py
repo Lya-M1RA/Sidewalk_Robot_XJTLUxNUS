@@ -23,7 +23,7 @@ class Counter(Node):
 
     def encoder(self, msg):
         r_msg = msg.right_motor_stat
-        r_count = int.from_bytes(int.to_bytes(r_msg, byteorder= 'little', signed= False)[4:8], byteorder='little',signed=True)
+        r_count = int.from_bytes(r_msg[4:8], byteorder= 'little', signed=True)
         if (r_count in range(-32768,32767)):
             r_output = Int16()
             r_output.data = r_count

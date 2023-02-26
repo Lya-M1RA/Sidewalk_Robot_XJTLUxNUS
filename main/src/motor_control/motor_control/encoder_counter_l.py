@@ -4,7 +4,7 @@
 import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
 from share.msg import RecvCAN0l
-from std_msgs.msg import Int16
+from std_msgs import Int16
 
 class Counter(Node):
     def __init__(self,name):

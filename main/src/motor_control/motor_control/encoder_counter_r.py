@@ -4,7 +4,7 @@
 import rclpy                                     # ROS2 Python Client Library
 from rclpy.node import Node                      # ROS2 Node
 from share.msg import RecvCAN0r
-from std_msgs.msg import Int16
+from std_msgs import Int16
 
 class Counter(Node):
     def __init__(self,name):
@@ -23,6 +23,7 @@ class Counter(Node):
 
     def encoder(self, msg):
         r_msg = msg.right_motor_stat
+        self.get_logger().info("{0}".format(r_msg))
         r_count = int.from_bytes(bytearray(r_msg[4:8]), byteorder= 'little', signed=True)
         r_output = Int16()
         r_output.data = r_count

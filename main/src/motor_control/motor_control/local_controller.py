@@ -142,24 +142,24 @@ class LocalController(Node):
                             LocalController.throttle[1] = True
                             self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
                         if LocalController.gear[1] == 1:
-                            rpm_factor = 500
-                            rpm_turning_factor = -0.1
+                            rpm_factor = 1000
+                            rpm_turning_factor = -0.2
                             rpm = rpm_factor * (LocalController.throttle[0] + 1) * 0.5
                             self.can_send(
                                 RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle[0] + 3) / 2),
                                 RPMControl(  rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle[0] + 3) / 2)
                             )
                         elif LocalController.gear[1] == 0:
-                            rpm_factor = 200
-                            rpm_turning_factor = -0.15
+                            rpm_factor = 400
+                            rpm_turning_factor = -0.2
                             rpm = rpm_factor * (LocalController.throttle[0] + 1) * 0.5
                             self.can_send(
                                 RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle[0] + 3) / 2),
                                 RPMControl(  rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle[0] + 3) / 2)
                             )
                         elif LocalController.gear[1] == -1:
-                            rpm_factor = -200
-                            rpm_turning_factor = -0.15
+                            rpm_factor = -300
+                            rpm_turning_factor = -0.2
                             rpm = rpm_factor * (LocalController.throttle[0] + 1) * 0.5
                             self.can_send(
                                 RPMControl(- rpm + LocalController.orientation * rpm_factor * rpm_turning_factor * (-LocalController.throttle[0] + 3) / 2),

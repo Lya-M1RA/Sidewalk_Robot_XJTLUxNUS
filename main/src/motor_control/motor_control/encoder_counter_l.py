@@ -23,7 +23,6 @@ class Counter(Node):
 
     def encoder(self, msg):
         l_msg = msg.left_motor_stat
-        # self.get_logger().info(l_msg)
         l_count = - int.from_bytes(bytearray(l_msg[4:8]), byteorder= 'little', signed=True)
         l_output = Int16()
         l_output.data = l_count

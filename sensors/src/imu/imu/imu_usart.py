@@ -3,7 +3,6 @@ from rclpy.node import Node                      # ROS2 Node
 from sensor_msgs.msg import Imu
 
 # Usart Library
-import time
 import serial
 import struct
 import binascii
@@ -18,42 +17,49 @@ import binascii
 # imu接收数据类型
 class IMU(Node):
     send_data = []
-    def __init__(self,name,Usart_port) -> None:
-        super().__init__(name)
+    def __init__(self):
+        super().__init__('imu_publisher')
+        self.publisher_ = self.create_publisher(Imu, 'imu_data', 1)
+
         # 串口初始化
         self.IMU_Usart = serial.Serial(
-            port = Usart_port,          # 串口
+            port = '/dev/ttyUSB0',      # 串口
             baudrate=115200,            # 波特率
             timeout = 0.001             # 由于后续使用read_all按照一个timeout周期时间读取数据
                                         # imu在波特率115200返回数据时间大概是1ms,9600下大概是10ms
                                         # 所以读取时间设置0.001s
         )
         # 接收数据初始化
-        self.ACC_X = 0                  # X轴加速度
-        self.ACC_Y = 0                  # Y轴加速度
-        self.ACC_Z = 0                  # Z轴加速度
-        self.GYRO_X = 0                 # X轴陀螺仪
-        self.GYRO_Y = 0                 # Y轴陀螺仪
-        self.GYRO_Z = 0                 # Z轴陀螺仪
-        self.roll = 0                   # 横滚角    
-        self.pitch = 0                  # 俯仰角
-        self.yaw = 0                    # 航向角
-        self.leve = 0                   # 磁场校准精度
-        self.temp = 0                   # 器件温度
-        self.MAG_X = 0                  # 磁场X轴
-        self.MAG_Y = 0                  # 磁场Y轴
-        self.MAG_Z = 0                  # 磁场Z轴
-        self.Q0 = 0                     # 四元数Q0
-        self.Q1 = 0                     # 四元数Q1
-        self.Q2 = 0                     # 四元数Q2
-        self.Q3 = 0                     # 四元数Q3
-
-        self.Pub_imu_data = self.create_publisher(Imu,"imu",1)
+        self.ACC_X:float = 0.0                   # X轴加速度
+        self.ACC_Y:float = 0.0                   # Y轴加速度
+        self.ACC_Z:float  =  0.0                 # Z轴加速度
+        self.GYRO_X :float = 0.0                 # X轴陀螺仪
+        self.GYRO_Y :float = 0.0                 # Y轴陀螺仪
+        self.GYRO_Z :float = 0.0                 # Z轴陀螺仪
+        self.roll :float = 0.0                   # 横滚角    
+        self.pitch :float = 0.0                  # 俯仰角
+        self.yaw :float = 0.0                    # 航向角
+        self.leve :float = 0.0                   # 磁场校准精度
+        self.temp :float = 0.0                   # 器件温度
+        self.MAG_X :float = 0.0                  # 磁场X轴
+        self.MAG_Y :float = 0.0                  # 磁场Y轴
+        self.MAG_Z :float = 0.0                  # 磁场Z轴
+        self.Q0 :float = 0.0                     # 四元数Q0.0
+        self.Q1 :float = 0.0                     # 四元数Q1
+        self.Q2 :float = 0.0                     # 四元数Q2
+        self.Q3 :float = 0.0                     # 四元数Q3
         # 判断串口是否打开成功
         if self.IMU_Usart.isOpen():
             print("open success")
         else:
             print("open failed")
+
+        # 回调函数返回周期
+        time_period = 0.001         
+        self.timer = self.create_timer(time_period, self.timer_callback)
+
+        # 发送读取指令
+        self.Send_ReadCommand()
 
     def Send_ReadCommand(self):
         '''
@@ -114,7 +120,7 @@ class IMU(Node):
                  
             else:
                 if(len+5==counter):
-                    print('Recv done!')
+                    #print('Recv done!')
                     Recv_flag=1
 
             # 收包完毕
@@ -129,15 +135,15 @@ class IMU(Node):
                             sum += int(data_inspect[i:i+2],16)
 
                     if (str(hex(sum))[-2:] == data_inspect[80:82]): # 如果数据检验没有问题，则进入解包过程
-                        print('the Rev data is right')
+                        #print('the Rev data is right')
                         
                         # 数据低八位在前，高八位在后
                         #print(Read_buffer[4:-1])                       
                         unpack_data = struct.unpack('<hhhhhhhhhBhhhhhhhh',Read_buffer[4:-1])
                         # 切片并将其解析为我们所需要的数据，切出我们所需要的数据部分
-                        #print(unpack_data)
                         g = 9.8
-                        self.ACC_X  = unpack_data[0]/2048 * g       # unit m/s^2xiaos
+                        
+                        self.ACC_X  = unpack_data[0]/2048 * g       # unit m/s^2
                         self.ACC_Y  = unpack_data[1]/2048 * g    
                         self.ACC_Z  = unpack_data[2]/2048 * g
                         self.GYRO_X = unpack_data[3]/16.4           # unit 度/s
@@ -155,14 +161,48 @@ class IMU(Node):
                         self.Q1     = unpack_data[15]/10000                 
                         self.Q2     = unpack_data[16]/10000                 
                         self.Q3     = unpack_data[17]/10000
-                        #print(self.__dict__)
+                        #print(self.__dict__) 
                 except:
-                    print("Error in receiving data!!")
+                    print("Have Error in receiving data!!")
                 counter=0               
                 break
             else:
                 counter += 1                        # 遍历整个接收数据的buffer
+        
+    def timer_callback(self):
 
+        # ----读取IMU的内部数据-----------------------------------
+        try:
+            count = self.IMU_Usart.inWaiting()
+            if count > 0:
+                self.Read_data()
+                
+
+                # 发布sensor_msgs/Imu 数据类型
+                imu_data = Imu()
+                imu_data.header.frame_id = "map"
+                imu_data.header.stamp = self.get_clock().now().to_msg()
+                imu_data.linear_acceleration.x = self.ACC_X
+                imu_data.linear_acceleration.y = self.ACC_Y
+                imu_data.linear_acceleration.z = self.ACC_Z
+                imu_data.angular_velocity.x = self.GYRO_X * 3.1415926 / 180.0  # unit transfer to rad/s
+                imu_data.angular_velocity.y = self.GYRO_Y * 3.1415926 / 180.0
+                imu_data.angular_velocity.z = self.GYRO_Z * 3.1415926 / 180.0
+                imu_data.orientation.x = self.Q0
+                imu_data.orientation.y = self.Q1
+                imu_data.orientation.z = self.Q2
+                imu_data.orientation.w = self.Q3
+                self.publisher_.publish(imu_data)             # 发布imu的数据
+
+                # --------------------------------------------------------
+                #print('读取中')
+
+        except KeyboardInterrupt:
+            if serial != None:
+                print("close serial port")
+                self.IMU_Usart.close()
+        
+        #--------------------------------------------------------
 
 
 
@@ -170,47 +210,13 @@ def main(args=None):
 
     # 变量初始化---------------------------------------------    
     rclpy.init(args=args)
-    node = IMU('imu','/dev/ttyUSB0')
-    every_time = time.strftime('%Y-%m-%d %H:%M:%S')# 时间戳
-
-    # 发送读取指令-------------------------------------------
-    node.Send_ReadCommand()
-   
-    # 循环读取IMU的内部数据-----------------------------------
-    try:
-        while True:
-            count = node.IMU_Usart.inWaiting()
-            if count > 0:
-                node.Read_data()
-
-    except KeyboardInterrupt:
-        if serial != None:
-            print("close serial port")
-            node.IMU_Usart.close()
-    
-    #--------------------------------------------------------
-
-    # 发布sensor_msgs/Imu 数据类型
-    imu_data = Imu()
-    imu_data.header.frame_id = "base_link"
-    imu_data.header.stamp = node.get_clock().now().to_msg()
-    imu_data.linear_acceleration.x = node.ACC_X
-    imu_data.linear_acceleration.y = node.ACC_Y
-    imu_data.linear_acceleration.z = node.ACC_Z
-    imu_data.angular_velocity.x = node.GYRO_X * 3.1415926 / 180.0  # unit transfer to rad/s
-    imu_data.angular_velocity.y = node.GYRO_Y * 3.1415926 / 180.0
-    imu_data.angular_velocity.z = node.GYRO_Z * 3.1415926 / 180.0
-    imu_data.orientation.x = node.Q0
-    imu_data.orientation.y = node.Q1
-    imu_data.orientation.z = node.Q2
-    imu_data.orientation.w = node.Q3
-
-    node.Pub_imu_data.publish(imu_data)             # 发布imu的数据，让cartographer订阅
-
-    # --------------------------------------------------------
-    rclpy.spin(node)
-    node.destory_node()
+    IMU_node = IMU()
+    rclpy.spin(IMU_node)
     rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
 
 
 '''

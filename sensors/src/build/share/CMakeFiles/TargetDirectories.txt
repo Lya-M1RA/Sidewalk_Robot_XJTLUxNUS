@@ -1,0 +1,9 @@
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/uninstall.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/share_uninstall.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/test.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/edit_cache.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/rebuild_cache.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/list_install_components.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/install.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/install/local.dir
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share/CMakeFiles/install/strip.dir

@@ -1,0 +1,15 @@
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/ament_index/resource_index/package_run_dependencies/share
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/ament_index/resource_index/parent_prefix_path/share
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/environment/ament_prefix_path.sh
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/environment/ament_prefix_path.dsv
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/environment/path.sh
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/environment/path.dsv
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/local_setup.bash
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/local_setup.sh
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/local_setup.zsh
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/local_setup.dsv
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.dsv
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/ament_index/resource_index/packages/share
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/cmake/shareConfig.cmake
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/cmake/shareConfig-version.cmake
+/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.xml

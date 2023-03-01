@@ -1,0 +1,170 @@
+[1.129s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.129s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='sequential', event_handlers=None, base_paths=['.'], paths=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=CustomArgumentParser(prog='colcon build', usage=None, description='Build a set of packages.', formatter_class=<class 'colcon_core.command.CustomFormatter'>, conflict_handler='error', add_help=True), verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffa86fa050>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffa86fa050>>)
+[1.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.243s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src'
+[1.244s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.244s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.245s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.245s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.245s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.292s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.292s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.294s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.294s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.294s] Level 1:colcon.colcon_core.package_identification:_identify(imu) by extensions ['ignore', 'ignore_ament_install']
+[1.295s] Level 1:colcon.colcon_core.package_identification:_identify(imu) by extension 'ignore'
+[1.295s] Level 1:colcon.colcon_core.package_identification:_identify(imu) by extension 'ignore_ament_install'
+[1.295s] Level 1:colcon.colcon_core.package_identification:_identify(imu) by extensions ['ros']
+[1.295s] Level 1:colcon.colcon_core.package_identification:_identify(imu) by extension 'ros'
+[1.305s] DEBUG:colcon.colcon_core.package_identification:Package 'imu' with type 'ros.ament_python' and name 'imu'
+[1.305s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.306s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.306s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.306s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.307s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.307s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.307s] Level 1:colcon.colcon_core.package_identification:_identify(share) by extensions ['ignore', 'ignore_ament_install']
+[1.307s] Level 1:colcon.colcon_core.package_identification:_identify(share) by extension 'ignore'
+[1.308s] Level 1:colcon.colcon_core.package_identification:_identify(share) by extension 'ignore_ament_install'
+[1.308s] Level 1:colcon.colcon_core.package_identification:_identify(share) by extensions ['ros']
+[1.308s] Level 1:colcon.colcon_core.package_identification:_identify(share) by extension 'ros'
+[1.310s] DEBUG:colcon.colcon_core.package_identification:Package 'share' with type 'ros.ament_cmake' and name 'share'
+[1.310s] Level 1:colcon.colcon_core.package_identification:_identify(ultrasonic) by extensions ['ignore', 'ignore_ament_install']
+[1.311s] Level 1:colcon.colcon_core.package_identification:_identify(ultrasonic) by extension 'ignore'
+[1.311s] Level 1:colcon.colcon_core.package_identification:_identify(ultrasonic) by extension 'ignore_ament_install'
+[1.311s] Level 1:colcon.colcon_core.package_identification:_identify(ultrasonic) by extensions ['ros']
+[1.311s] Level 1:colcon.colcon_core.package_identification:_identify(ultrasonic) by extension 'ros'
+[1.313s] DEBUG:colcon.colcon_core.package_identification:Package 'ultrasonic' with type 'ros.ament_python' and name 'ultrasonic'
+[1.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_args' from command line to 'None'
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_target' from command line to 'None'
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_clean_cache' from command line to 'False'
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_clean_first' from command line to 'False'
+[1.422s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'cmake_force_configure' from command line to 'False'
+[1.423s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'ament_cmake_args' from command line to 'None'
+[1.423s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'catkin_cmake_args' from command line to 'None'
+[1.423s] Level 5:colcon.colcon_core.verb:set package 'imu' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.423s] DEBUG:colcon.colcon_core.verb:Building package 'imu' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu', 'merge_install': False, 'path': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/imu', 'symlink_install': False, 'test_result_base': None}
+[1.427s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_args' from command line to 'None'
+[1.427s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_target' from command line to 'None'
+[1.427s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_clean_cache' from command line to 'False'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_clean_first' from command line to 'False'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'cmake_force_configure' from command line to 'False'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'ament_cmake_args' from command line to 'None'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'catkin_cmake_args' from command line to 'None'
+[1.428s] Level 5:colcon.colcon_core.verb:set package 'share' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.428s] DEBUG:colcon.colcon_core.verb:Building package 'share' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share', 'merge_install': False, 'path': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/share', 'symlink_install': False, 'test_result_base': None}
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_args' from command line to 'None'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_target' from command line to 'None'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_clean_cache' from command line to 'False'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_clean_first' from command line to 'False'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'cmake_force_configure' from command line to 'False'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'ament_cmake_args' from command line to 'None'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'catkin_cmake_args' from command line to 'None'
+[1.433s] Level 5:colcon.colcon_core.verb:set package 'ultrasonic' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.434s] DEBUG:colcon.colcon_core.verb:Building package 'ultrasonic' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic', 'merge_install': False, 'path': '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/ultrasonic', 'symlink_install': False, 'test_result_base': None}
+[1.435s] INFO:colcon.colcon_core.executor:Executing jobs using 'sequential' executor
+[1.442s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'imu'
+[1.442s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/imu' with build type 'ament_python'
+[1.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('imu', 'ament_prefix_path')
+[1.449s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.450s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/hook/ament_prefix_path.dsv'
+[1.452s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/hook/ament_prefix_path.sh'
+[1.457s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.716s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/imu'
+[2.719s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.369s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/imu': PYTHONPATH=/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/prefix_override:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/imu build --build-base /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/build install --record /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/install.log --single-version-externally-managed
+[5.751s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/imu' returned '0': PYTHONPATH=/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/prefix_override:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/imu build --build-base /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/build install --record /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/imu/install.log --single-version-externally-managed
+[5.770s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu' for CMake module files
+[5.772s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu' for CMake config files
+[5.776s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/lib'
+[5.777s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/bin'
+[5.777s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/lib/pkgconfig/imu.pc'
+[5.779s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/lib/python3.10/site-packages'
+[5.779s] Level 1:colcon.colcon_core.shell:create_environment_hook('imu', 'pythonpath')
+[5.782s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/hook/pythonpath.dsv'
+[5.784s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/hook/pythonpath.sh'
+[5.787s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/bin'
+[5.787s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(imu)
+[5.791s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/package.dsv'
+[5.793s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/imu/package.sh'
+[5.797s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu/share/colcon-core/packages/imu)
+[5.798s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'imu' finished with '0'
+[5.798s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'share'
+[5.799s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/share' with build type 'ament_cmake'
+[5.799s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/share'
+[5.802s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.855s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/motor_control:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/can_bus:/opt/ros/humble /usr/bin/cmake --build /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share -- -j4 -l4
+[6.013s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/motor_control:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/can_bus:/opt/ros/humble /usr/bin/cmake --build /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share -- -j4 -l4
+[6.171s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/motor_control:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/can_bus:/opt/ros/humble /usr/bin/cmake --install /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share
+[6.212s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(share)
+[6.212s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/ultrasonic:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/install/imu:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/motor_control:/home/pi/Sidewalk_Robot_XJTLUxNUS/main/install/can_bus:/opt/ros/humble /usr/bin/cmake --install /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/share
+[6.220s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share' for CMake module files
+[6.222s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share' for CMake config files
+[6.225s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'cmake_prefix_path')
+[6.229s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/hook/cmake_prefix_path.dsv'
+[6.230s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/hook/cmake_prefix_path.sh'
+[6.233s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/bin'
+[6.233s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/lib/pkgconfig/share.pc'
+[6.234s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/lib/python3.10/site-packages'
+[6.235s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/bin'
+[6.239s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.dsv'
+[6.240s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.sh'
+[6.242s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/colcon-core/packages/share)
+[6.365s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(share)
+[6.373s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share' for CMake module files
+[6.375s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share' for CMake config files
+[6.377s] Level 1:colcon.colcon_core.shell:create_environment_hook('share', 'cmake_prefix_path')
+[6.380s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/hook/cmake_prefix_path.dsv'
+[6.382s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/hook/cmake_prefix_path.sh'
+[6.384s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/bin'
+[6.385s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/lib/pkgconfig/share.pc'
+[6.385s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/lib/python3.10/site-packages'
+[6.386s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/bin'
+[6.390s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.dsv'
+[6.392s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/share/package.sh'
+[6.394s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/share/share/colcon-core/packages/share)
+[6.395s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'share' finished with '0'
+[6.395s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'ultrasonic'
+[6.395s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/ultrasonic' with build type 'ament_python'
+[6.396s] Level 1:colcon.colcon_core.shell:create_environment_hook('ultrasonic', 'ament_prefix_path')
+[6.399s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/hook/ament_prefix_path.dsv'
+[6.401s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/hook/ament_prefix_path.sh'
+[6.406s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.695s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/ultrasonic'
+[7.698s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.348s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/ultrasonic': PYTHONPATH=/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/prefix_override:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/ultrasonic build --build-base /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/build install --record /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/install.log --single-version-externally-managed
+[10.729s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/ultrasonic' returned '0': PYTHONPATH=/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/prefix_override:/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/ultrasonic build --build-base /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/build install --record /home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/build/ultrasonic/install.log --single-version-externally-managed
+[10.732s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic' for CMake module files
+[10.735s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic' for CMake config files
+[10.739s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/lib'
+[10.739s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/bin'
+[10.740s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/lib/pkgconfig/ultrasonic.pc'
+[10.741s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/lib/python3.10/site-packages'
+[10.741s] Level 1:colcon.colcon_core.shell:create_environment_hook('ultrasonic', 'pythonpath')
+[10.745s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/hook/pythonpath.dsv'
+[10.747s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/hook/pythonpath.sh'
+[10.749s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/bin'
+[10.750s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ultrasonic)
+[10.753s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/package.dsv'
+[10.755s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/ultrasonic/package.sh'
+[10.757s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/ultrasonic/share/colcon-core/packages/ultrasonic)
+[10.758s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'ultrasonic' finished with '0'
+[10.759s] DEBUG:colcon.colcon_core.executor.sequential:closing loop
+[10.759s] DEBUG:colcon.colcon_core.executor.sequential:loop closed
+[10.759s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.760s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.763s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/local_setup.sh'
+[10.766s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/_local_setup_util_sh.py'
+[10.772s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Sidewalk_Robot_XJTLUxNUS/sensors/src/install/setup.sh'

@@ -11,3 +11,5 @@
 /.idea/
 /venv/
 
+# Python virtual environment
+*/venv/

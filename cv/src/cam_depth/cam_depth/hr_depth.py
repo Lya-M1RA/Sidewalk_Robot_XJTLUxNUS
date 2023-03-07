@@ -57,7 +57,7 @@ class Depth(Node):
 
         # cv2.imshow("Est_Depth", result.cpu().squeeze().numpy())  # 不使用OpenCV
 
-        result = re
+        result = result.cpu().squeeze().numpy()
         cv2.imshow("Est_Depth", result)                           # 使用OpenCV显示处理后的图像效果
         cv2.waitKey(10)
 

@@ -6,12 +6,19 @@ setup(
     name=package_name,
     version='0.0.0',
     packages=[package_name],
+    install_requires=[
+        'setuptools',
+        'numpy',
+        'opencv-python',
+        'torch',
+        'torchvision',
+        'rclpy'
+    ],    
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='mira-wsl',
     maintainer_email='l.yang.ze.s@gmail.com',

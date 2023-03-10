@@ -21,11 +21,11 @@ class UpperController(Node):
         super().__init__(name)
 
 
-        self.sub_joy = message_filters.Subscriber(Joy, "joy")
+        self.sub_joy = message_filters.Subscriber(self, Joy, "joy")
         
-        self.sub_lwheel_speed = message_filters.Subscriber(Float32,"lwheel_vtarget")
+        self.sub_lwheel_speed = message_filters.Subscriber(self, Float32, "lwheel_vtarget")
         
-        self.sub_rwheel_speed = message_filters.Subscriber(Float32,"rwheel_vtarget")     
+        self.sub_rwheel_speed = message_filters.Subscriber(self, Float32, "rwheel_vtarget")     
 
         sub_instr = message_filters.TimeSynchronizer([self.sub_joy, self.sub_lwheel_speed, self.sub_rwheel_speed], 10)
         sub_instr.registerCallback(self.instr_recv)

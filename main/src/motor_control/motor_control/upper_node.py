@@ -17,24 +17,43 @@ class UpperController(Node):
     emerg_stop = False
     if_emerg_stop = False
 
+    lwheel_freq = 0
+    rwheel_freq = 0
+    
+
     def __init__(self,name):
         super().__init__(name)
 
-
-        self.sub_joy = message_filters.Subscriber(self, Joy, "joy")
+        self.sub_joy = self.create_subscription(
+            Float32, 
+            "lwheel_vtarget", 
+            self.lwheel_recv, 
+            10)
         
-        self.sub_lwheel_speed = message_filters.Subscriber(self, Float32, "lwheel_vtarget")
+        self.sub_joy = self.create_subscription(
+            Float32, 
+            "rwheel_vtarget", 
+            self.rwheel_recv, 
+            10)
         
-        self.sub_rwheel_speed = message_filters.Subscriber(self, Float32, "rwheel_vtarget")     
 
-        sub_instr = message_filters.TimeSynchronizer([self.sub_joy, self.sub_lwheel_speed, self.sub_rwheel_speed], 10)
-        sub_instr.registerCallback(self.instr_recv)
-
+        self.sub_joy = self.create_subscription(
+            Joy, 
+            "joy", 
+            self.joy_recv, 
+            10)
+        
         self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 20)
         
 
-    def instr_recv(self, joy, lwheel_vtarget, rwheel_vtarget):
-        joy_input = {
+    def lwheel_recv(self, lwheel_vtarget):
+        self.lwheel_freq = self.speed2freq(lwheel_vtarget.data)
+
+    def rwheel_recv(self, rwheel_vtarget):  
+        self.rwheel_freq = self.speed2freq(rwheel_vtarget.data)
+
+    def joy_recv(self, joy):
+        self.joy_input = {
             'left_joy_x'            : -joy.axes[0]     ,
             'left_joy_y'            :  joy.axes[1]     ,
             'right_joy_x'           : -joy.axes[2]     ,
@@ -56,17 +75,8 @@ class UpperController(Node):
             'right_joy_button'      :  joy.buttons[14]  
         } 
 
-        lwheel_speed = lwheel_vtarget.data
-        rwheel_speed = rwheel_vtarget.data
-
-        lwheel_rpm = self.speed2rpm(lwheel_speed)
-        rwheel_rpm = self.speed2rpm(rwheel_speed)
-
-        self.input_processor(joy_input, lwheel_rpm, rwheel_rpm)
-
-
     #  Converting speed (m/s) into wheel rotation (rpm)
-    def speed2freq(speed):
+    def speed2freq(self, speed):
         wheel_diameter = 285                    #  Measured diameter (mm) of the wheel
         perimeter = wheel_diameter * math.pi    #  Calculate the perimeter (mm) of the wheel
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
@@ -82,8 +92,8 @@ class UpperController(Node):
 
 
     # Process Xbox Controller input and spped instructions
-    def input_processor(self, joy_input, lwheel_rpm, rwheel_rpm):
-        if joy_input['y_button'] == 1 :
+    def input_processor(self):
+        if self.joy_input['y_button'] == 1 :
             self.mode_change = [self.mode_change[1], True]
         else :
             self.mode_change = [self.mode_change[1], False]
@@ -92,11 +102,11 @@ class UpperController(Node):
             self.cunrrent_mode = not self.current_mode
 
         if self.current_mode == True:
-            if joy_input['x_button'] != 1 :
+            if self.joy_input['x_button'] != 1 :
                 if if_emerg_stop == True:
                     self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
                     if_emerg_stop = False
-                self.can_send(RPMControl(-lwheel_rpm), RPMControl(rwheel_rpm))
+                self.can_send(RPMControl(-self.lwheel_freq), RPMControl(self.rwheel_freq))
 
             else :
                 if_emerg_stop = True

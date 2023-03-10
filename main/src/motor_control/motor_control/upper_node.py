@@ -65,11 +65,12 @@ class UpperController(Node):
 
 
     #  Converting speed (m/s) into wheel rotation (rpm)
-    def speed2rpm(speed):
+    def speed2freq(speed):
         wheel_diameter = 285                    #  Measured diameter (mm) of the wheel
         perimeter = wheel_diameter * math.pi    #  Calculate the perimeter (mm) of the wheel
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
-        return rpm
+        freq = rpm / 60 * 100                       #  Calculate the rotation frequency (Hz) of the wheel
+        return freq
 
     #  Send instructions "can_tx" node
     def can_send(self, left_frame_data, right_frame_data):
@@ -92,7 +93,7 @@ class UpperController(Node):
         if self.current_mode == True:
             if joy_input['x_button'] != 1 :
                 self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))          
-                self.can_send(RPMControl(lwheel_rpm), RPMControl(rwheel_rpm))
+                self.can_send(RPMControl(-lwheel_rpm), RPMControl(rwheel_rpm))
 
             else :
                 self.can_send(MotorMode('Emergency Stop'), MotorMode('Emergency Stop'))

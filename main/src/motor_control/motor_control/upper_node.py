@@ -47,7 +47,6 @@ class UpperController(Node):
         self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 20)
         
 
-
     def lwheel_recv(self, lwheel_vtarget):
         self.lwheel_freq = self.speed2freq(lwheel_vtarget.data)
 

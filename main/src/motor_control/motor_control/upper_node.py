@@ -5,7 +5,6 @@ from rclpy.node import Node                      # ROS2 Node
 from sensor_msgs.msg import Joy                  # ROS2 standard Joy Message
 from share.msg import SendCAN0
 from std_msgs.msg import Float32
-import message_filters
 import math
 from .motor_instruct import *
 
@@ -19,6 +18,8 @@ class UpperController(Node):
 
     lwheel_freq = 0
     rwheel_freq = 0
+
+    joy_input = dict()
     
 
     def __init__(self,name):
@@ -53,34 +54,34 @@ class UpperController(Node):
         self.rwheel_freq = self.speed2freq(rwheel_vtarget.data)
 
     def joy_recv(self, joy):
-        self.joy_input = {
-            'left_joy_x'            : -joy.axes[0]     ,
-            'left_joy_y'            :  joy.axes[1]     ,
-            'right_joy_x'           : -joy.axes[2]     ,
-            'right_joy_y'           :  joy.axes[3]     ,
-            'dpad_x'                : -joy.axes[6]     ,
-            'dpad_y'                :  joy.axes[7]     ,
-            'left_trigger'          : -joy.axes[5]     ,
-            'right_trigger'         : -joy.axes[4]     ,
-            'left_shoulder_button'  :  joy.buttons[6]  ,
-            'right_shoulder_button' :  joy.buttons[7]  ,
-            'a_button'              :  joy.buttons[0]  ,
-            'b_button'              :  joy.buttons[1]  ,   
-            'x_button'              :  joy.buttons[3]  ,
-            'y_button'              :  joy.buttons[4]  ,
-            'select_button'         :  joy.buttons[15]  ,
-            'start_button'          :  joy.buttons[11]  ,
-            'xbox_button'           :  joy.buttons[16]  ,
-            'left_joy_button'       :  joy.buttons[13]  ,
-            'right_joy_button'      :  joy.buttons[14]  
-        } 
+            self.joy_input['left_joy_x']            = -joy.axes[0]    
+            self.joy_input['left_joy_y']            =  joy.axes[1]    
+            self.joy_input['right_joy_x']           = -joy.axes[2]    
+            self.joy_input['right_joy_y']           =  joy.axes[3]    
+            self.joy_input['dpad_x']                = -joy.axes[6]    
+            self.joy_input['dpad_y']                =  joy.axes[7]    
+            self.joy_input['left_trigger']          = -joy.axes[5]    
+            self.joy_input['right_trigger']         = -joy.axes[4]    
+            self.joy_input['left_shoulder_button']  =  joy.buttons[6] 
+            self.joy_input['right_shoulder_button'] =  joy.buttons[7] 
+            self.joy_input['a_button']              =  joy.buttons[0] 
+            self.joy_input['b_button']              =  joy.buttons[1]   
+            self.joy_input['x_button']              =  joy.buttons[3] 
+            self.joy_input['y_button']              =  joy.buttons[4] 
+            self.joy_input['select_button']         =  joy.buttons[15]
+            self.joy_input['start_button']          =  joy.buttons[11]
+            self.joy_input['xbox_button']           =  joy.buttons[16]
+            self.joy_input['left_joy_button']       =  joy.buttons[13]
+            self.joy_input['right_joy_button']      =  joy.buttons[14]
+
+            self.input_processor()
 
     #  Converting speed (m/s) into wheel rotation (rpm)
     def speed2freq(self, speed):
         wheel_diameter = 285                    #  Measured diameter (mm) of the wheel
         perimeter = wheel_diameter * math.pi    #  Calculate the perimeter (mm) of the wheel
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
-        freq = rpm / 60 * 100                       #  Calculate the rotation frequency (Hz) of the wheel
+        freq = rpm / 60 * 100 *10               #  Calculate the rotation frequency (Hz) of the wheel
         return freq
 
     #  Send instructions "can_tx" node

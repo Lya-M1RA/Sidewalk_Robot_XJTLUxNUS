@@ -81,7 +81,7 @@ class UpperController(Node):
         wheel_diameter = 285                    #  Measured diameter (mm) of the wheel
         perimeter = wheel_diameter * math.pi    #  Calculate the perimeter (mm) of the wheel
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
-        freq = rpm / 60 * 100 *10               #  Calculate the rotation frequency (Hz) of the wheel
+        freq = rpm / 60 * 50 *10               #  Calculate the rotation frequency (Hz) of the wheel
         return freq
 
     #  Send instructions "can_tx" node

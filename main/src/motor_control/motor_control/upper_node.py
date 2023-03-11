@@ -11,7 +11,7 @@ from .motor_instruct import *
 
 class UpperController(Node):
 
-    cunrrent_mode = False
+    current_mode = False
     mode_change = [False, False]
     emerg_stop = False
     if_emerg_stop = False
@@ -100,7 +100,7 @@ class UpperController(Node):
             self.mode_change = [self.mode_change[1], False]
 
         if self.mode_change == [False, True]:
-            self.cunrrent_mode = not self.current_mode
+            self.current_mode = not self.current_mode
 
         if self.current_mode == True:
             if self.joy_input['x_button'] != 1 :

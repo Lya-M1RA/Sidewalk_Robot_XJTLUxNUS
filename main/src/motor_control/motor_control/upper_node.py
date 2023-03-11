@@ -104,16 +104,16 @@ class UpperController(Node):
 
         if self.current_mode == True:
             if self.joy_input['x_button'] != 1 :
-                if if_emerg_stop == True:
+                if self.if_emerg_stop == True:
                     self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
-                    if_emerg_stop = False
+                    self.if_emerg_stop = False
                 self.can_send(RPMControl(-self.lwheel_freq), RPMControl(self.rwheel_freq))
 
             else :
-                if_emerg_stop = True
+                self.if_emerg_stop = True
                 self.can_send(MotorMode('Emergency Stop'), MotorMode('Emergency Stop'))
         else :
-            if_emerg_stop = True
+            self.if_emerg_stop = True
 
 
 def main(args=None):

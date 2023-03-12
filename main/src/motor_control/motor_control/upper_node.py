@@ -45,13 +45,21 @@ class UpperController(Node):
             10)
         
         self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 20)
+
+        self.timer = self.create_timer(0.005, self.timer_callback)
+
+
+    def timer_callback(self):
+        self.input_processor()
         
 
     def lwheel_recv(self, lwheel_vtarget):
         self.lwheel_freq = self.speed2freq(lwheel_vtarget.data)
 
+
     def rwheel_recv(self, rwheel_vtarget):  
         self.rwheel_freq = self.speed2freq(rwheel_vtarget.data)
+
 
     def joy_recv(self, joy):
             self.joy_input['left_joy_x']            = -joy.axes[0]    
@@ -74,7 +82,6 @@ class UpperController(Node):
             self.joy_input['left_joy_button']       =  joy.buttons[13]
             self.joy_input['right_joy_button']      =  joy.buttons[14]
 
-            self.input_processor()
 
     #  Converting speed (m/s) into wheel rotation (rpm)
     def speed2freq(self, speed):
@@ -83,6 +90,7 @@ class UpperController(Node):
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
         freq = rpm * 5                          #  Calculate the rotation frequency (Hz) of the wheel
         return freq
+
 
     #  Send instructions "can_tx" node
     def can_send(self, left_frame_data, right_frame_data):

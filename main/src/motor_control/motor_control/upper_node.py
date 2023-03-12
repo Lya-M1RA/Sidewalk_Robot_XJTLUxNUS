@@ -114,6 +114,8 @@ class UpperController(Node):
                 self.can_send(MotorMode('Emergency Stop'), MotorMode('Emergency Stop'))
         else :
             self.if_emerg_stop = True
+            self.can_send(MotorMode('Free Stop'), MotorMode('Free Stop'))
+
 
 
 def main(args=None):

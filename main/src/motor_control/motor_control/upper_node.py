@@ -19,7 +19,27 @@ class UpperController(Node):
     lwheel_freq = 0
     rwheel_freq = 0
 
-    joy_input = dict()
+    joy_input = {
+            'left_joy_x'            : 0  ,
+            'left_joy_y'            : 0  ,
+            'right_joy_x'           : 0  ,
+            'right_joy_y'           : 0  ,
+            'dpad_x'                : 0  ,
+            'dpad_y'                : 0  ,
+            'left_trigger'          : 1  ,
+            'right_trigger'         : 1  ,
+            'left_shoulder_button'  : 0  ,
+            'right_shoulder_button' : 0  ,
+            'a_button'              : 0  ,
+            'b_button'              : 0  ,   
+            'x_button'              : 0  ,
+            'y_button'              : 0  ,
+            'select_button'         : 0  ,
+            'start_button'          : 0  ,
+            'xbox_button'           : 0  ,
+            'left_joy_button'       : 0  ,
+            'right_joy_button'      : 0  
+    }
     
 
     def __init__(self,name):
@@ -47,10 +67,6 @@ class UpperController(Node):
         self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 20)
 
         self.timer = self.create_timer(0.005, self.timer_callback)
-
-
-    def timer_callback(self):
-        self.input_processor()
         
 
     def lwheel_recv(self, lwheel_vtarget):
@@ -101,7 +117,7 @@ class UpperController(Node):
 
 
     # Process Xbox Controller input and spped instructions
-    def input_processor(self):
+    def timer_callback(self):
         if self.joy_input['y_button'] == 1 :
             self.mode_change = [self.mode_change[1], True]
         else :
@@ -109,6 +125,10 @@ class UpperController(Node):
 
         if self.mode_change == [False, True]:
             self.current_mode = not self.current_mode
+            if self.current_mode == True:
+                self.get_logger().info("Mode changed to Speed Control")
+            else :
+                self.get_logger().info("Mode changed to Stop")
 
         if self.current_mode == True:
             if self.joy_input['x_button'] != 1 :
@@ -123,7 +143,6 @@ class UpperController(Node):
         else :
             self.if_emerg_stop = True
             self.can_send(MotorMode('Free Stop'), MotorMode('Free Stop'))
-
 
 
 def main(args=None):

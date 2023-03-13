@@ -31,7 +31,7 @@ class UpperController(Node):
             'left_shoulder_button'  : 0  ,
             'right_shoulder_button' : 0  ,
             'a_button'              : 0  ,
-            'b_button'              : 0  ,   
+            'b_button'              : 0  ,
             'x_button'              : 0  ,
             'y_button'              : 0  ,
             'select_button'         : 0  ,
@@ -64,7 +64,7 @@ class UpperController(Node):
             self.joy_recv, 
             10)
         
-        self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 20)
+        self.pub_can = self.create_publisher(SendCAN0, 'send_can0', 10)
 
         self.timer = self.create_timer(0.005, self.timer_callback)
         
@@ -104,7 +104,7 @@ class UpperController(Node):
         wheel_diameter = 285                    #  Measured diameter (mm) of the wheel
         perimeter = wheel_diameter * math.pi    #  Calculate the perimeter (mm) of the wheel
         rpm = speed * 1000 * 60 / perimeter     #  Calculate the rotation speed (rpm) of the wheel
-        freq = rpm * 5                          #  Calculate the rotation frequency (Hz) of the wheel
+        freq = rpm * 5 * 10                     #  Calculate the rotation frequency (Hz) of the wheel
         return freq
 
 
@@ -125,6 +125,8 @@ class UpperController(Node):
 
         if self.mode_change == [False, True]:
             self.current_mode = not self.current_mode
+            self.lwheel_freq = 0
+            self.rwheel_freq = 0
             if self.current_mode == True:
                 self.get_logger().info("Mode changed to Speed Control")
             else :
@@ -134,12 +136,15 @@ class UpperController(Node):
             if self.joy_input['x_button'] != 1 :
                 if self.if_emerg_stop == True:
                     self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
+                    self.get_logger().warning("Writing to motors: Speed Control")
                     self.if_emerg_stop = False
                 self.can_send(RPMControl(-self.lwheel_freq), RPMControl(self.rwheel_freq))
 
             else :
                 self.if_emerg_stop = True
                 self.can_send(MotorMode('Emergency Stop'), MotorMode('Emergency Stop'))
+                self.get_logger().warning("Writing to motors: Emergency Stop")
+
         else :
             self.if_emerg_stop = True
             self.can_send(MotorMode('Free Stop'), MotorMode('Free Stop'))

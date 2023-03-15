@@ -9,5 +9,6 @@
 # folders from IDEs
 /.vscode/
 /.idea/
-/venv/
 
+# Python virtual environment
+**/venv/

@@ -21,8 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'local_controller           = motor_control.local_controller:main',
-            'encoder_counter_l            = motor_control.encoder_counter_l:main',
-            'encoder_counter_r            = motor_control.encoder_counter_r:main'
+            'encoder_counter_l          = motor_control.encoder_counter_l:main',
+            'encoder_counter_r          = motor_control.encoder_counter_r:main',
+            'upper_controller           = motor_control.upper_node:main'
         ],
     },
 )

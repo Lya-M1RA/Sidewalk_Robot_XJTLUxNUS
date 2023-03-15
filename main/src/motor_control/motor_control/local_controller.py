@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from re import T
 from time import sleep
 import rclpy                                     # ROS2 Python Client Library

@@ -20,7 +20,6 @@ class LocalController(Node):
     def __init__(self,name):
         super().__init__(name)
 
-
         self.sub_joy = self.create_subscription(
             Joy, 
             "joy", 
@@ -115,15 +114,6 @@ class LocalController(Node):
                     LocalController.throttle[1] = False
                     if LocalController.brake[1] == False:
                         LocalController.brake[1] = True
-                    #     self.can_send(MotorMode('Torque Control'), MotorMode('Torque Control'))
-
-                    # brake_factor = 2.5
-                    # brake_turning_factor = 0.1
-                    # brake_current = brake_factor * (brake + 1)
-                    # self.can_send(
-                    #     TorqueControl(-brake_current + brake_turning_factor * orientation * (- brake + 3) * 0.25), 
-                    #     TorqueControl( brake_current - brake_turning_factor * orientation * (- brake + 3) * 0.25)
-                    # )
                         self.can_send(MotorMode('Speed Control'), MotorMode('Speed Control'))
                         self.can_send(RPMControl(0),RPMControl(0))
 

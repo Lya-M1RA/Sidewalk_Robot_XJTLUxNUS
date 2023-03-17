@@ -1,5 +1,3 @@
-
-
 def GenerateFrame(data_byte_num, index_num, data):
 
     data_byte_num_dict = {

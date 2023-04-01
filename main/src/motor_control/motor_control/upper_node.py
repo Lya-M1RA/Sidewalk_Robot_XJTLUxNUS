@@ -116,7 +116,7 @@ class UpperController(Node):
         self.pub_can.publish(msg)
 
 
-    # Process Xbox Controller input and spped instructions
+    # Process Xbox Controller input and speed instructions
     def timer_callback(self):
         if self.joy_input['y_button'] == 1 :
             self.mode_change = [self.mode_change[1], True]

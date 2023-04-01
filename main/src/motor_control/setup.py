@@ -23,7 +23,8 @@ setup(
             'local_controller           = motor_control.local_controller:main',
             'encoder_counter_l          = motor_control.encoder_counter_l:main',
             'encoder_counter_r          = motor_control.encoder_counter_r:main',
-            'upper_controller           = motor_control.upper_node:main'
+            'upper_controller           = motor_control.upper_node:main',
+            'motor_controller           = motor_control.motor_controller:main'
         ],
     },
 )

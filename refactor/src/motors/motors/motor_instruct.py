@@ -9,7 +9,6 @@ def GenerateFrame(data_byte_num, index_num, data):
     return [data_byte_num_dict.get(data_byte_num)] + index_num + [0x00] + data
 
 
-# 
 def MotorMode(mode):
     modes = {
         'Normal Stop': [0x10, 0x00, 0x00, 0x00],
